@@ -6,7 +6,7 @@ $(function () {
 
   function getEvents(page) {
     $.getJSON({
-      url: "https://modasapi.azurewebsites.net/api/event/pagesize/10/page/" + page,
+      url: "https://modasclient.azurewebsites.net/api/event/pagesize/10/page/" + page,
       success: function (response, textStatus, jqXhr) {
         //console.log(response);
         showTableBody(response.events);
@@ -164,7 +164,7 @@ $(function () {
     // AJAX to update database
     $.ajax({
       headers: { "Content-Type": "application/json" },
-      url: "https://modasapi.azurewebsites.net/api/event/" + $(this).data('id'),
+      url: "https://modasclient.azurewebsites.net/api/event/" + $(this).data('id'),
       type: 'patch',
       data: JSON.stringify([{ "op": "replace", "path": "Flagged", "value": checked }]),
       success: function () {
